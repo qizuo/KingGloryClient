@@ -49,7 +49,7 @@ public class SocketClient : MonoBehaviour {
             IPEndPoint point = new IPEndPoint(ip, _port);
 
             socketSend.Connect(point);
-            Debug.Log("连接成功!");
+            Debug.Log("连接成功!，我的端口"+socketSend.LocalEndPoint);
             //开启新的线程，不停的接收服务器发来的消息
             Thread c_thread = new Thread(Received);
             c_thread.IsBackground = true;
@@ -79,7 +79,7 @@ public class SocketClient : MonoBehaviour {
                     break;
                 }
                 string str = Encoding.UTF8.GetString(buffer, 0, len);
-                Debug.Log("客户端打印：" + socketSend.RemoteEndPoint + ":" + str);
+                Debug.Log("收到消息" + socketSend.RemoteEndPoint + ":" + str);
             }
             catch { }
         }
