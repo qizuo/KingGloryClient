@@ -24,6 +24,13 @@ public class SocketClient : MonoBehaviour {
     public void StartClient () {
         bt_connect_Click();
     }
+
+    //建立连接后，请求在线连接玩家数
+    //返回包含自己已连接的
+    public int GetOnlinePlayerCount()
+    {
+        return 2;
+    }
     
     // Update is called once per frame
     void Update () {
